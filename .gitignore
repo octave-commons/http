@@ -1,46 +1,26 @@
-# Dependencies
-node_modules/
-.pnpm-store/
-
-# Build outputs
+# Build artifacts
 dist/
 build/
 lib/
 *.tsbuildinfo
 
-# Logs
+# Dependencies 
+node_modules/
 *.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-lerna-debug.log*
+*.pid
+*.seed
+*.pid.lock
 
-# Editor files
+# Environment files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# IDE files
 .vscode/
 .idea/
 *.swp
 *.swo
 *~
-
-# OS files
-.DS_Store
-Thumbs.db
-
-# Environment files
-.env
-.env.local
-.env.*.local
-
-# Coverage
-coverage/
-.nyc_output/
-
-# Cache
-.cache/
-.parcel-cache/
-
-# Temporary files
-*.tmp
-*.temp
-.nx/
