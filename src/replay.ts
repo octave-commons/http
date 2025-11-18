@@ -9,7 +9,7 @@ import express, {
     type Response,
 } from 'express';
 import type { ReadonlyDeep } from 'type-fest';
-import type { EventRecord, EventStore, Millis } from '@promethean-os/event/types.js';
+import type { EventRecord, EventStore, Millis } from './event-types.js';
 
 class HttpError extends Error {
     readonly status: number;
@@ -177,7 +177,7 @@ const streamBatches = async (
     wroteAny: boolean,
 ): Promise<boolean> => {
     const batch = await context.store.scan(context.topic, { ts: cursor, limit: batchSize });
-    const filtered = batch.filter((event) => event.ts <= context.toTs);
+    const filtered = batch.filter((event: EventRecord) => event.ts <= context.toTs);
 
     if (filtered.length === 0) {
         return wroteAny;
